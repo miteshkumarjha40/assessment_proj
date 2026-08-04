@@ -1,0 +1,15 @@
+{
+	"name": "assessment40",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "801ad238-69ef-46fe-b02b-7a974caacc1a",
+		"tenantId": "1cc408f0-2671-424a-8b2a-2534ce815b49"
+	}
+}

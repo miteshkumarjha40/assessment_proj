@@ -1,0 +1,9 @@
+{
+	"name": "integrationRuntimeTvmaze",
+	"properties": {
+		"type": "SelfHosted",
+		"typeProperties": {
+			"selfContainedInteractiveAuthoringEnabled": true
+		}
+	}
+}

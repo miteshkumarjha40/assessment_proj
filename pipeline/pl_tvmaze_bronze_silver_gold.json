@@ -1,0 +1,84 @@
+{
+	"name": "pl_tvmaze_bronze_silver_gold",
+	"properties": {
+		"activities": [
+			{
+				"name": "TVMaze_Bronze_Layer_Ingestion",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Workspace/Users/miteshkumarjha40@outlook.com/TVMaze_Bronze_Layer_Ingestion"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksTV",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "TVMaze_Silver_Layer_Transformations",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "TVMaze_Bronze_Layer_Ingestion",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Workspace/Users/miteshkumarjha40@outlook.com/TVMaze_Silver_Layer_Transformations"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksTV",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "TVMaze _Gold_Layer_Analytics",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "TVMaze_Silver_Layer_Transformations",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Workspace/Users/miteshkumarjha40@outlook.com/TVMaze _Gold_Layer_Analytics"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksTV",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-08-04T09:47:29Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
