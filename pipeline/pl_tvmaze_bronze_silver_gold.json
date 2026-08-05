@@ -4,6 +4,7 @@
 		"activities": [
 			{
 				"name": "TVMaze_Bronze_Layer_Ingestion",
+				"description": "loading from ",
 				"type": "DatabricksNotebook",
 				"dependsOn": [],
 				"policy": {
